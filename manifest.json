@@ -1,0 +1,22 @@
+{
+   "background": {
+   	"scripts": ["js/jquery-1.7.1.min.js", "env.js", "option.js","background.js"]
+   },	
+   "content_scripts": [ {
+      "exclude_globs": [  ],
+      "exclude_matches": [  ],
+      "include_globs": [ "http://www.shanbay.com/*" ],
+      "js": [ "js/jquery-1.7.1.min.js", "js/jquery.shortcuts.js", "env.js", "shanbay.ding.js" ],
+	  "css": [ "style.css" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_idle"
+   } ],
+   "converted_from_user_script": true,
+   "description": "\u6247\u8d1d\u4e01\uff0c\u6247\u8d1d\u7f51\u6269\u5c55\u3002",
+   "name": "Shanbay Ding",
+   "version": "0.1",
+   "icons": {
+      "128": "logo128.png"
+   },
+   "manifest_version": 2
+}
