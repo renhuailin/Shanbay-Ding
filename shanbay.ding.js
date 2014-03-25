@@ -166,6 +166,12 @@ function main(option) {
 	
 	//页面跳转提示，
 	if ( document.URL.match("bdc/review") ) {
+        if( $("#review .learning-detail-container").length == 0 ) {
+            //这时可能是在最后总结或最初进入时候。
+            return;
+        }
+        
+        
 		$(window).bind('beforeunload', function(){
 		  return '亲，你正在背单词中，确定要离开吗?';
 		});
