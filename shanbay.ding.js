@@ -1,5 +1,5 @@
 function main(option) {
-	
+
 	//重主义ReviewDetailView 的 initialize，添加'Y'和'N'两个shortcuts
     ReviewDetailView.prototype.initialize =  function () {
         var self = this;
@@ -17,7 +17,7 @@ function main(option) {
         $.Shortcuts.stop();
         $.Shortcuts.empty();
         var shortcut_list_name = "detail_" + this.model.id;
-        this.shortcut_name = shortcut_list_name;        
+        this.shortcut_name = shortcut_list_name;
         var shortcuts = $.Shortcuts.add({
             type: 'up',
             mask: 'y',
@@ -124,12 +124,12 @@ function main(option) {
             },
             list: shortcut_list_name
         });
-		
+
         setTimeout(function () {
             shortcuts.start(shortcut_list_name);
         }, 100);
     }
-	
+
 	//修复了在提示的最后一步“查看详细”时，按下's'键时会弹出一个黑层的问题。
     ReviewDetailView.prototype.spell_popup = function () {
 		if ($(".learning-detail-container").hasClass("hide")) {
@@ -162,20 +162,20 @@ function main(option) {
             modal.find('#spell-box').focus();
         }, 10);
         modal.find('#spell-box').focus();
-    }	
-	
+    }
+
 	//页面跳转提示，
 	if ( document.URL.match("bdc/review") ) {
-        if( $("#review .learning-detail-container").length == 0 ) {
-            //这时可能是在最后总结或最初进入时候。
-            return;
-        }
         
-        
-		$(window).bind('beforeunload', function(){
-		  return '亲，你正在背单词中，确定要离开吗?';
+    	$(window).bind('beforeunload', function(){
+	        if( $("#review .review-id").length == 0 ) {
+	            //这时可能是在最后总结或最初进入时候。
+	            return;
+	        } else {
+	        	return '亲，你正在背单词中，确定要离开吗?';
+	        }		  
 		});
-	}	
+	}
 
 } // end of main 整个main将被注入
 
