@@ -185,7 +185,7 @@ sendMessage({
 }, function (response) {
     var script = document.createElement("script");
     var option = JSON.stringify(response);
-    script.textContent = "(" + main.toString() + ")(" + option + ");//@ sourceURL=shanbay_plus.js";
+    script.textContent = "(" + main.toString() + ")(" + option + ");//@ sourceURL=shanbay.ding.js";
     document.body.appendChild(script);
 });
 
